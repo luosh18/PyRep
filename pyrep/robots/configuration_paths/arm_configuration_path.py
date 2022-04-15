@@ -111,9 +111,9 @@ class ArmConfigurationPath(ConfigurationPath):
         max_jerk = self._arm.max_jerk
         lengths = self._get_path_point_lengths()
         target_pos_vel = [lengths[-1],0]
-        previous_q = self._path_points[0:len(self._arm.joints)]
 
         while True:
+            previous_q = self._path_points[0:len(self._arm.joints)]
             pos_vel_accel = [0, 0, 0]
             rMax = 0
             rml_handle = sim.simRMLPos(
