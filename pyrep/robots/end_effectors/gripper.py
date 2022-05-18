@@ -7,6 +7,9 @@ import numpy as np
 
 POSITION_ERROR = 0.001
 
+CLOSING = 0.0
+OPENING = 1.0
+
 
 class Gripper(RobotComponent):
     """Represents all types of end-effectors, e.g. grippers.
@@ -23,6 +26,7 @@ class Gripper(RobotComponent):
         self._grasped_objects: List[Object] = []
         self._prev_positions = [None] * len(joint_names)
         self._prev_vels = [None] * len(joint_names)  # Used to stop oscillating
+        self.action = OPENING
 
         self._touch_sensors = []
         i = 0
